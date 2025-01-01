@@ -1,0 +1,16 @@
+{
+  "name": "amoblamientos_patagonicos",
+  "version": "1.0.0",
+  "type":"module",
+  "description": "Amoblamientos Patagonicos Web Site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "Express": "^3.0.1"
+  }
+}

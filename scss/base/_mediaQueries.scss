@@ -1,0 +1,339 @@
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css');
+
+@media screen and (orientation: landscape) and (max-width: 1368px) {
+	* {
+		font-size: 40%;
+
+		header {
+			height: 15vh;
+			padding: 0;
+		}
+
+		#Header {
+			display: grid;
+			visibility: visible;
+		}
+
+		#mobileHeader {
+			display: none;
+			visibility: hidden;
+		}
+
+
+		main {
+			#colecciones {
+
+				#colectionItemContainer {
+					display: grid;
+					grid-template-columns: repeat(map-get($cantCol, mid), 1fr);
+
+					.colectionItem {
+						height: colItemMid(Height);
+						width: colItemMid(Width);
+					}
+				}
+			}
+		}
+
+		footer {
+			#ubicacion {
+
+				iframe {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+
+		.logoContainer {
+			height: 100%;
+
+			.logo {
+				max-height: 15vh;
+			}
+		}
+	}
+}
+
+@media screen and (orientation: portrait) {
+
+	* {
+		font-size: 30%;
+		padding: 0;
+		margin: 0;
+	}
+
+	#Header {
+		display: none;
+		visibility: hidden;
+	}
+
+	#mobileHeader {
+		display: grid;
+		visibility: visible;
+
+		#mobileNavContainer{
+			#menuList{
+				#mobileColections{
+					.title{
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		#colecciones {
+
+			padding: 5rem 0;
+
+			.title{
+				text-align: center;
+			}
+
+			#colectionItemContainer {
+				display: grid;
+				grid-template-columns: repeat(map-get($cantCol, min), 1fr);
+				gap: 0;
+
+				width:99vw;
+
+				.colectionItem {
+					height: colItemMin(Height);
+					width: 100%;
+					margin: 0;
+				}
+			}
+		}
+
+		#portada {
+			max-width: 100vw;
+			overflow: hidden;
+
+			div {
+				overflow: hidden;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.button {
+				--btnWidth: 45rem;
+				top: 60%;
+
+				:nth-child(n) {
+					font-size: 3rem;
+				}
+			}
+		}
+
+		#mapa{
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr auto;
+			
+			#dir{
+				grid-template-rows: auto repeat(2, 1fr);
+
+				grid-template-areas:
+				"c"
+				"d"
+				"h"
+				;
+
+				#conocer{
+					grid-area: c;
+					font-size: fontSize(h2);
+					font-weight: fontWeight(Light);
+					margin-bottom: 5rem;
+				}
+
+				#direction{
+					grid-area: d;
+				}
+
+				#horarios{
+					grid-area: h;
+				}
+			}
+		}
+
+		
+	}
+	#initBtn{
+		display: none;
+	}
+
+	#wppBtn{
+		max-width: 1rem;
+		opacity: 1;
+	}
+	
+	.colectionPage{
+
+		padding: 2rem;
+		max-width: 100vw;
+
+		.title{
+			margin: 5rem 0;
+		}
+
+		.serieContainer{
+
+			.modelContainer{
+				display: flex;
+				flex-direction: column-reverse;
+				height: auto;
+
+				img{
+					height: auto;
+				}
+
+				div{
+					padding: 4rem 0;
+					grid-template-rows: auto 1fr;
+
+					.body{
+						text-align:center;
+					}
+				}
+			}
+		}
+	}
+
+	#serieVestidores{
+		.modelContainer{
+			display: flex;
+			flex-direction: column-reverse;
+			height: auto;
+		}
+	}
+
+	.colectionPagePiletas{
+		padding: 2rem;
+
+		.serieContainer{
+			.modelContainer{
+				display: flex;
+				flex-direction: column-reverse;
+				height: auto;
+				width: 100%;
+
+				padding: 4rem;
+
+				article{
+					img{
+						height: auto;
+						width: 100%;
+					}
+				}
+
+				.model{
+					.body{
+						text-align: center;
+					}
+				}
+			}
+
+			#serieAccesorios{
+				.accesoriosContainer{
+					height: 50vh;
+					overflow-y: scroll;
+
+					img{
+						width: 30rem;
+					}
+				}
+			}
+		}
+	}
+
+	#serieSistemaOpen{
+		.sistemaOpenContainer{
+			.sistemaOpenGallery{
+				img{
+					width: 100%;
+					margin: 1rem;
+				}
+			}
+		}
+	}
+
+	footer {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, auto);
+		grid-template-areas:
+			"auto"
+			"auto"
+			"auto"
+			"a"
+		;
+
+		max-width: 100vw;
+
+		padding: 0;
+
+		#contacto,
+		#ubicacion,
+		#johnson {
+			justify-content: center;
+			align-items: center;
+			margin-bottom: fontSize(h2);
+		}
+
+		#contacto{
+			padding: 0;
+
+			.title{
+				margin: 0;
+				padding: 0;
+			}
+			.contactList{
+				padding: 0;
+
+				li{
+					margin: calc(fontSize(h3) - fontSize(h5));
+					a{
+						width: 100%;
+						text-align: left;
+
+						:nth-child(n){
+							font-size: fontSize(h4);
+						}
+					}
+				}
+			}
+		}
+
+		#ubicacion {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+
+		#johnson{
+			max-width: 100vw;
+			.logoContainer{
+				width: 100%;
+
+				img{
+					max-width: 40vw;
+				}
+			}
+
+			.menuList{
+				display: none;
+			}
+		}
+
+		#powered{
+			max-width: 100vw;
+
+			:nth-child(n){
+				max-width: 100%;
+			}
+		}
+	}
+}

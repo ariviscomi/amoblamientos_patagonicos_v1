@@ -1,0 +1,238 @@
+.Hgrid {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.noHgrid {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-areas:
+		"auto auto auto"
+		"cl cl cl"
+	;
+}
+
+header {
+	min-height: Header(size);
+	height: min-content;
+	min-width: 100vw;
+	max-width: 100vw;
+	background-color: color(background);
+
+	position: static;
+	z-index: 10;
+
+	padding: 0 1rem 0 1rem;
+
+	#navContainer {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+
+		ul {
+			display: flex;
+			justify-content: space-between;
+			padding: 0;
+			width: 100%;
+		}
+	}
+
+	li {
+		:nth-child(n) {
+			color: color(accent);
+		}
+
+		font-family: fontFamily(title);
+		font-weight: fontWeight(Bold);
+		font-style:normal;
+		padding: 0 1rem 0 1rem;
+
+		:hover {
+			color: color(emphasis);
+		}
+
+		a {
+			align-self: center;
+		}
+	}
+
+	#colectionsList {
+		grid-area: cl;
+		background-color: color(background);
+		min-width: 100vw;
+		width: 100vw;
+		grid-template-columns: repeat(9, 1fr);
+
+		position: relative;
+		z-index: 0;
+
+		grid-template-areas:
+			"d1 d1 d1 ulList d2 d2 d2 d2"
+		;
+
+		#d1 {
+			grid-area: d1;
+		}
+
+		#d2 {
+			grid-area: d2;
+
+			section {
+				height: 100%;
+
+				.ulList {
+					display: flex;
+					flex-direction: column;
+
+					li {
+						display: flex;
+						justify-content: left;
+
+					}
+				}
+			}
+
+		}
+
+		h5 {
+			margin-top: calc(10%);
+		}
+
+		#ulList {
+			grid-area: ulList;
+
+			li {
+				display: block;
+				font-size: fontSize(h5);
+				padding: 0 1rem 0 1rem;
+
+				a,
+				i {
+					display: inline-flex;
+				}
+			}
+		}
+	}
+}
+
+#mobileHeader {
+	width: 100%;
+	height: fit-content;
+	padding: 0 5rem;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr) auto;
+	grid-template-rows: 1fr;
+	align-items: center;
+
+	grid-template-areas:
+		"mlogo mlogo mlogo mlogo mlogo mbtn"
+	;
+
+	#menuBtn {
+		grid-area: mbtn;
+		font-size: 5.2rem;
+		position: relative;
+		z-index: 1000;
+		color: color(accent);
+	}
+
+	#mobileNavContainer {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: 100%;
+		z-index: 100;
+		background-color: rgba(0, 0, 0, 0.5);
+		transition: margin-right 0.1s linear;
+		/* margin-right: -100%; */
+		/* Por defecto oculto */
+
+		.menuList {
+			background-color: color(background);
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 70%;
+			height: 100vh;
+			overflow: auto;
+			padding: 15vh 0;
+			justify-self: right;
+
+			li {
+				margin: 2rem 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+
+			#mobileColections {
+				height: min-content;
+				
+
+				#mobileColectionsList {
+
+					height: 0;
+					overflow: hidden;
+					transition: max-height 0.2s ease;
+
+					&.open {
+						height: 100%;
+						/* Ajustar según el contenido */
+					}
+
+					li {
+						margin: 10% 0;
+
+						ul {
+							max-height: 0;
+							overflow: hidden;
+							transition: max-height 0.3s ease;
+
+							&.open {
+								max-height: 100%;
+								/* Ajustar según contenido */
+							}
+
+							li {
+								margin: 20% 0;
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+
+	.showNav {
+		margin-right: 0;
+		display: block;
+	}
+
+	.closeNav {
+		margin-right: -100%;
+		display: none;
+	}
+
+
+	#mobileLogoContainer {
+		grid-area: mlogo;
+		display: flex;
+		justify-self: center;
+		max-height: 100%;
+		height: fit-content;
+
+		img {
+			height: 10vh;
+		}
+	}
+
+}

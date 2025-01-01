@@ -1,0 +1,12 @@
+//? BASE
+@import 'base/variables';
+
+//! COMPONENTS
+@import 'components/general';
+@import 'components/header';
+@import 'components/main';
+@import 'components/colections';
+@import 'components/footer';
+
+//MEDIA
+@import 'base/mediaQueries';

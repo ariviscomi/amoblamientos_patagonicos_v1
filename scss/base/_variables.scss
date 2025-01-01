@@ -1,0 +1,128 @@
+$font-size: (
+	h1:6rem,
+	h2:4.8rem,
+	h3:3.6rem,
+	h4:3rem,
+	h5:2.6rem
+);
+
+$font-family: (
+	title: '"Playfair Display", serif',
+	body: '"Poppins",sans-serif'
+);
+
+$font-style: (
+	title: normal,
+	body:normal
+);
+
+$font-weight: (
+	Bold:900,
+	Semi-bold:700,
+	Medium:500,
+	Light:300,
+	Extra-light:100
+);
+
+@function fontWeight($weightKey) {
+	@return map-get($font-weight, $weightKey);
+}
+
+@function fontFamily($familyKey) {
+	@return map-get($font-family, $familyKey);
+}
+
+@function fontStyle($styleKey) {
+	@return map-get($font-style, $styleKey);
+}
+
+@function fontSize($fontSize) {
+	@return map-get($font-size, $fontSize);
+}
+
+h1 {
+	font-size: fontSize(h1);
+}
+
+h2 {
+	font-size: fontSize(h2);
+}
+
+h3 {
+	font-size: fontSize(h3);
+}
+
+h4,p {
+	font-size: fontSize(h4);
+}
+
+span,
+i,
+h5 {
+	font-size: fontSize(h5);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	padding: 0;
+	margin: 0;
+}
+
+// ---------- COLORES
+$colors: (
+	background:#FDF1E2,
+	secondary: #9F9589,
+	secondary_op:#9f958999,
+	accent:#4B2E23,
+	accent_op:#4c2f2466,
+	text_blk: #1B1B1B,
+	text_wht: #ffffff,
+	emphasis: #A37C40,
+	contrast:#555150
+);
+
+@function color($colorKey) {
+	@return map-get($colors, $colorKey);
+}
+
+// ---------- VARIAS
+$header-size: (
+	size:15vh
+);
+
+@function Header($headerKey) {
+	@return map-get($header-size, $headerKey);
+}
+
+
+$cantCol: (
+	max:4,
+	mid:2,
+	min:1
+);
+
+$col-item-max: (
+	Height:calc(35vw / map-get($cantCol, max)),
+	Width:calc(90vw / map-get($cantCol, max))
+);
+$col-item-mid: (
+	Height:calc(35vw / map-get($cantCol, mid)),
+	Width:calc(80vw / map-get($cantCol, mid))
+);
+$col-item-min: (
+	Height:calc(35vw / map-get($cantCol, min)),
+	Width:calc(75vw / map-get($cantCol, min))
+);
+
+@function colItemMax($colItemKey) {
+	@return map-get($col-item-max, $colItemKey);
+}
+@function colItemMid($colItemKey) {
+	@return map-get($col-item-mid, $colItemKey);
+}
+@function colItemMin($colItemKey) {
+	@return map-get($col-item-min, $colItemKey);
+}
